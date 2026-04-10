@@ -60,7 +60,7 @@ function renderProducts() {
             const src = imageBase401 + (typeof f === 'string' ? f : f);
             return `
                 <div class="product-card" data-img="${src}" data-name="${name}">
-                    <img class="product-card-img" src="${src}" alt="${name}" loading="lazy">
+                    <img class="product-card-img" data-src="${src}" alt="${name}" loading="lazy">
                     <div class="product-card-info">
                         <div class="product-card-name">${name}</div>
                     </div>
@@ -79,7 +79,7 @@ function renderProducts() {
             const src = imageBase405 + (typeof f === 'string' ? f : f);
             return `
                 <div class="product-card" data-img="${src}" data-name="${name}">
-                    <img class="product-card-img" src="${src}" alt="${name}" loading="lazy">
+                    <img class="product-card-img" data-src="${src}" alt="${name}" loading="lazy">
                     <div class="product-card-info">
                         <div class="product-card-name">${name}</div>
                     </div>
@@ -136,8 +136,19 @@ function initToggles() {
                 btn.classList.add('open');
                 wrapper.classList.add('open');
                 textEl.textContent = '收起产品图库';
+                loadImagesInWrapper(wrapper);
             }
         });
+    });
+}
+
+function loadImagesInWrapper(wrapper) {
+    const imgs = wrapper.querySelectorAll('img[data-src]');
+    imgs.forEach(img => {
+        if (!img.src || img.src === '' || img.src === window.location.href) {
+            img.src = img.dataset.src;
+        }
+        img.removeAttribute('data-src');
     });
 }
 
@@ -352,6 +363,18 @@ animElements.forEach(el => {
     el.classList.add('fade-in');
     animObserver.observe(el);
 });
+
+// ========== LAZY BACKGROUND IMAGES ==========
+const lazyBgs = document.querySelectorAll('.lazy-bg');
+const bgObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.backgroundImage = `url('${entry.target.dataset.bg}')`;
+            bgObserver.unobserve(entry.target);
+        }
+    });
+}, { rootMargin: '200px 0px' });
+lazyBgs.forEach(el => bgObserver.observe(el));
 
 // ========== CONTACT FORM ==========
 document.getElementById('contactForm').addEventListener('submit', (e) => {

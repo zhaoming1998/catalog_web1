@@ -634,6 +634,13 @@ body {
     object-fit: cover;
     display: block;
     background: #f1f5f9;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.product-card-img[src]:not([src=""]) {
+    opacity: 1;
+}
 }
 
 .product-card-info {
