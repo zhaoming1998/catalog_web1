@@ -749,46 +749,16 @@ body {
 
 .factory-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 20px;
-}
-
-.factory-main {
-    position: relative;
-    border-radius: var(--radius);
-    overflow: hidden;
-}
-
-.factory-main img {
-    width: 100%;
-    height: 100%;
-    min-height: 400px;
-    object-fit: cover;
-    display: block;
-}
-
-.factory-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 16px 24px;
-    background: linear-gradient(transparent, rgba(10,38,71,0.8));
-    color: white;
-    font-weight: 600;
-}
-
-.factory-side {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
 .factory-card {
-    flex: 1;
     position: relative;
     border-radius: var(--radius);
     overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: var(--shadow);
 }
 
 .factory-card img {
@@ -796,6 +766,11 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.4s ease;
+}
+
+.factory-card:hover img {
+    transform: scale(1.05);
 }
 
 .factory-card-caption {
@@ -803,7 +778,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 12px 20px;
+    padding: 14px 20px;
     background: linear-gradient(transparent, rgba(10,38,71,0.8));
     color: white;
     font-size: 14px;
@@ -819,13 +794,21 @@ body {
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow);
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto;
 }
 
 .factory-cert-card img {
     width: 100%;
     display: block;
+}
+
+.factory-cert-caption {
+    text-align: center;
+    padding: 14px 0 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
 }
 
 /* ========== ABOUT ========== */
@@ -1232,13 +1215,7 @@ body {
         gap: 40px;
     }
     .factory-grid {
-        grid-template-columns: 1fr;
-    }
-    .factory-main img {
-        min-height: 300px;
-    }
-    .factory-side {
-        flex-direction: row;
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -1329,8 +1306,8 @@ body {
         font-size: clamp(28px, 7vw, 48px);
     }
 
-    .factory-side {
-        flex-direction: column;
+    .factory-grid {
+        grid-template-columns: 1fr;
     }
 }
 
