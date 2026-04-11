@@ -810,6 +810,24 @@ body {
     font-weight: 600;
 }
 
+.factory-cert {
+    margin-top: 24px;
+}
+
+.factory-cert-card {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.factory-cert-card img {
+    width: 100%;
+    display: block;
+}
+
 /* ========== ABOUT ========== */
 .about {
     padding: 100px 0;
