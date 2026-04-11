@@ -46,7 +46,7 @@ async function loadProductImages() {
 }
 
 function getImageName(filename) {
-    return filename.replace('副本.jpg', '').replace('.jpg', '');
+    return filename.replace('副本.jpg', '').replace('.jpg', '').replace(/,/g, '/');
 }
 
 function renderProducts() {
