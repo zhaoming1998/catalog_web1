@@ -12,6 +12,12 @@ const PRODUCTS_DATA = {
 const imageBase401 = 'assets/images/products/401/';
 const imageBase405 = 'assets/images/products/405/';
 
+const supportsWebP = document.createElement('canvas').toDataURL('image/webp').startsWith('data:image/webp');
+
+function getExt() {
+    return supportsWebP ? '.webp' : '副本.jpg';
+}
+
 const files401 = [];
 const files405 = [];
 
@@ -46,7 +52,7 @@ async function loadProductImages() {
 }
 
 function getImageName(filename) {
-    return filename.replace('副本.jpg', '').replace('.jpg', '').replace(/,/g, '/');
+    return filename.replace('.webp', '').replace('副本.jpg', '').replace('.jpg', '').replace(/,/g, '/');
 }
 
 function renderProducts() {
@@ -96,6 +102,7 @@ function renderProducts() {
 }
 
 function generateFileList401() {
+    const ext = getExt();
     const prefixes28 = ['AF','AG','AZ','OD','OJ','OK','OO','OX','OY'];
     const prefixes33a = ['AL','AU','BB','BE','BP','BQ','BY','CB','CE','OI','OL','OM','ON','OR','OS','OW','OZ'];
     const prefixes33b = ['AB','AC','BM'];
@@ -104,18 +111,19 @@ function generateFileList401() {
     const prefixes33c2 = ['BC','EK'];
     
     const files = [];
-    prefixes28.forEach(s => files.push(`401-28,410A-A-${s}副本.jpg`));
-    prefixes33a.forEach(s => files.push(`401-33,410A-A-${s}副本.jpg`));
-    prefixes33b.forEach(s => files.push(`401-33,410A-B-${s}副本.jpg`));
-    prefixes33c.forEach(s => files.push(`401-33,410A-C-${s}副本.jpg`));
-    prefixes33d.forEach(s => files.push(`401-33,410A-D-${s}副本.jpg`));
-    prefixes33c2.forEach(s => files.push(`401-33,410C-A-${s}副本.jpg`));
+    prefixes28.forEach(s => files.push(`401-28,410A-A-${s}${ext}`));
+    prefixes33a.forEach(s => files.push(`401-33,410A-A-${s}${ext}`));
+    prefixes33b.forEach(s => files.push(`401-33,410A-B-${s}${ext}`));
+    prefixes33c.forEach(s => files.push(`401-33,410A-C-${s}${ext}`));
+    prefixes33d.forEach(s => files.push(`401-33,410A-D-${s}${ext}`));
+    prefixes33c2.forEach(s => files.push(`401-33,410C-A-${s}${ext}`));
     return files;
 }
 
 function generateFileList405() {
+    const ext = getExt();
     const suffixes = ['OA','OB','OC','OE','OG','OI','OJ','OK','OP','WF'];
-    return suffixes.map(s => `R405-33,410C-A-${s}副本.jpg`);
+    return suffixes.map(s => `R405-33,410C-A-${s}${ext}`);
 }
 
 // ========== SERIES TOGGLES ==========
@@ -369,7 +377,12 @@ const lazyBgs = document.querySelectorAll('.lazy-bg');
 const bgObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.backgroundImage = `url('${entry.target.dataset.bg}')`;
+            let bgUrl = entry.target.dataset.bg;
+            if (supportsWebP && bgUrl.endsWith('.webp')) {
+                entry.target.style.backgroundImage = `url('${bgUrl}')`;
+            } else {
+                entry.target.style.backgroundImage = `url('${bgUrl.replace('.webp', '.jpg')}')`;
+            }
             bgObserver.unobserve(entry.target);
         }
     });
