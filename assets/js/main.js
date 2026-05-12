@@ -15,7 +15,7 @@ const imageBase405 = 'assets/images/products/405/';
 const supportsWebP = document.createElement('canvas').toDataURL('image/webp').startsWith('data:image/webp');
 
 function getExt() {
-    return supportsWebP ? '.webp' : '副本.jpg';
+    return supportsWebP ? '副本.webp' : '副本.jpg';
 }
 
 const files401 = [];
