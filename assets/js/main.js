@@ -52,7 +52,7 @@ async function loadProductImages() {
 }
 
 function getImageName(filename) {
-    return filename.replace('.webp', '').replace('副本.jpg', '').replace('.jpg', '').replace(/,/g, '/');
+    return filename.replace(/副本\.(webp|jpg)/g, '').replace(/\.(webp|jpg)/g, '').replace(/,/g, '/');
 }
 
 function renderProducts() {
