@@ -560,10 +560,29 @@ const bgObserver = new IntersectionObserver((entries) => {
 lazyBgs.forEach(el => bgObserver.observe(el));
 
 // ========== CONTACT FORM ==========
-document.getElementById('contactForm').addEventListener('submit', (e) => {
+(function() {
+    emailjs.init('kuXqmxhz-5mVDVNbi');
+})();
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    alert(I18N[currentLang].form_success);
-    e.target.reset();
+    const btn = this.querySelector('button[type="submit"]');
+    const origText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = '...';
+
+    emailjs.sendForm('service_raybosun', 'template_mrb700r', this)
+        .then(() => {
+            alert(I18N[currentLang].form_success);
+            this.reset();
+        })
+        .catch((err) => {
+            alert('Send failed: ' + err.text);
+        })
+        .finally(() => {
+            btn.disabled = false;
+            btn.textContent = origText;
+        });
 });
 
 // ========== INIT ==========
