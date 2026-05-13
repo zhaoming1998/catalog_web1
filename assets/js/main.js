@@ -83,6 +83,8 @@ const I18N = {
         footer_address1: '广东省江门市鹤山市',
         footer_address2: '中欧企业合作区',
         footer_copyright: '\u00A9 2026 广东瑞柏晟科技有限公司 版权所有',
+        validation_required: '请填写此字段',
+        validation_email: '请输入有效的邮箱地址',
     },
     en: {
         nav_home: 'Home',
@@ -167,10 +169,23 @@ const I18N = {
         footer_address1: 'Heshan, Jiangmen, Guangdong',
         footer_address2: 'Sino-European Cooperation Zone',
         footer_copyright: '\u00A9 2026 Guangdong Raybosun Technology Co., Ltd. All rights reserved.',
+        validation_required: 'Please fill out this field',
+        validation_email: 'Please enter a valid email address',
     }
 };
 
 let currentLang = localStorage.getItem('lang') || 'zh';
+
+function updateValidationMessages(lang) {
+    const t = I18N[lang];
+    document.querySelectorAll('#contactForm [required]').forEach(el => {
+        el.setAttribute('oninvalid', `this.setCustomValidity('${t.validation_required}')`);
+        el.setAttribute('oninput', "this.setCustomValidity('')");
+        if (el.type === 'email') {
+            el.setAttribute('oninvalid', `if(this.validity.typeMismatch){this.setCustomValidity('${t.validation_email}')}else{this.setCustomValidity('${t.validation_required}')}`);
+        }
+    });
+}
 
 function applyLang(lang) {
     currentLang = lang;
@@ -190,6 +205,8 @@ function applyLang(lang) {
 
     const langLabel = document.getElementById('langLabel');
     if (langLabel) langLabel.textContent = lang === 'zh' ? 'EN' : '中文';
+
+    updateValidationMessages(lang);
 
     renderProducts();
 
