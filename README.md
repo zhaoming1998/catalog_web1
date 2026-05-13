@@ -1,6 +1,6 @@
 # 瑞柏晟科技 产品目录网站
 
-在线访问：**https://zhaoming1998.github.io/catalog_web1/**
+在线访问：**https://raybosun.co**
 
 GitHub 仓库：https://github.com/zhaoming1998/catalog_web1
 
@@ -94,7 +94,7 @@ web/
 
 - **平台**：GitHub Pages（公开仓库，免费）
 - **自动部署**：通过 `.github/workflows/pages.yml` 配置，每次 push 到 main 分支自动触发部署
-- **在线地址**：https://zhaoming1998.github.io/catalog_web1/
+- **在线地址**：https://raybosun.co
 
 ### 推送更新流程
 
@@ -175,7 +175,9 @@ WebP 压缩参数：
 16. **全站 WebP 转换** - 全站图片转为 WebP 格式，首屏资源减少 83%；Logo 尺寸从 1926px 缩至 200px（395KB → 1.7KB）；equipment.jpg 882KB → 45KB；产品图平均减小 77%；Google Fonts 减少字重并异步加载；添加 `<picture>` 标签兼容回退；修复 CSS 语法错误
     17. **产品名称修复** - 修复 WebP 文件名中"副本"字样未去除的问题，产品图路径和显示名称正确匹配
     18. **中英文切换** - 添加全站 i18n 国际化支持，导航栏右上角语言切换按钮（中文/EN），覆盖所有文本区域（导航、Hero、统计、产品、优势、工厂、关于、证书、联系表单、页脚），语言偏好保存在 localStorage；调整英文版 Hero 标题字体大小以保持两行布局
-19. **EmailJS 询盘表单** - 接入 EmailJS 邮件发送服务，用户提交询盘后自动发送邮件到公司邮箱；表单字段添加 name 属性映射；邮箱字段改为必填；英文界面下表单验证提示语自动切换为英文；英文版公司名称显示为 RAYBOSUN TECHNOLOGY
+    19. **EmailJS 询盘表单** - 接入 EmailJS 邮件发送服务，用户提交询盘后自动发送邮件到公司邮箱；表单字段添加 name 属性映射；邮箱字段改为必填；英文界面下表单验证提示语自动切换为英文；英文版公司名称显示为 RAYBOSUN TECHNOLOGY
+20. **自定义域名** - 绑定 raybosun.co 域名，配置 DNS A 记录指向 GitHub Pages，自动 HTTPS
+21. **401 系列编号更新** - 401 系列产品编号统一添加 R 前缀（如 R401-28/410A-A-AF）
 
 ## 待补充信息
 
