@@ -340,6 +340,10 @@ body {
     letter-spacing: -1px;
 }
 
+html[lang="en"] .hero-title {
+    font-size: clamp(28px, 4.5vw, 52px);
+}
+
 .hero-subtitle {
     font-size: clamp(16px, 2vw, 20px);
     font-weight: 300;
