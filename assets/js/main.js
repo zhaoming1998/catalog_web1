@@ -85,6 +85,7 @@ const I18N = {
         footer_copyright: '\u00A9 2026 广东瑞柏晟科技有限公司 版权所有',
         validation_required: '请填写此字段',
         validation_email: '请输入有效的邮箱地址',
+        logo_text: '瑞柏晟科技',
     },
     en: {
         nav_home: 'Home',
@@ -171,6 +172,7 @@ const I18N = {
         footer_copyright: '\u00A9 2026 Guangdong Raybosun Technology Co., Ltd. All rights reserved.',
         validation_required: 'Please fill out this field',
         validation_email: 'Please enter a valid email address',
+        logo_text: 'RAYBOSUN TECHNOLOGY',
     }
 };
 
