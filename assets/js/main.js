@@ -176,7 +176,7 @@ const I18N = {
     }
 };
 
-let currentLang = localStorage.getItem('lang') || 'zh';
+let currentLang = localStorage.getItem('lang') || 'en';
 
 function updateValidationMessages(lang) {
     const t = I18N[lang];
