@@ -21,10 +21,13 @@ const I18N = {
         filter_all: '全部系列',
         filter_401: '401 内置乳液泵系列',
         filter_405: '405 外置乳液泵系列',
+        filter_201: '201 内置乳液泵系列',
         series_401_title: '内置乳液泵系列',
         series_401_desc: '内置弹簧设计，外观简洁优雅，适合各类个人护理产品包装',
         series_405_title: '外置乳液泵系列',
         series_405_desc: '外置弹簧结构，出液稳定流畅，多种规格可选',
+        series_201_title: '内置乳液泵系列',
+        series_201_desc: '紧凑型内置弹簧设计，精巧外观，适用于各类中小型个人护理包装',
         toggle_expand: '展开产品图库',
         toggle_collapse: '收起产品图库',
         view_larger: '查看大图',
@@ -78,6 +81,7 @@ const I18N = {
         footer_product_series: '产品系列',
         footer_401: '401 内置乳液泵',
         footer_405: '405 外置乳液泵',
+        footer_201: '201 内置乳液泵',
         footer_more: '更多系列即将推出',
         footer_contact_info: '联系方式',
         footer_address1: '广东省江门市鹤山市',
@@ -108,10 +112,13 @@ const I18N = {
         filter_all: 'All Series',
         filter_401: '401 Inner Spring Pump Series',
         filter_405: '405 Outer Spring Pump Series',
+        filter_201: '201 Inner Spring Pump Series',
         series_401_title: 'Inner Spring Pump Series',
         series_401_desc: 'Inner spring design, clean and elegant appearance, ideal for personal care packaging',
         series_405_title: 'Outer Spring Pump Series',
         series_405_desc: 'Outer spring structure, stable and smooth dispensing, multiple specifications available',
+        series_201_title: 'Inner Spring Pump Series',
+        series_201_desc: 'Compact inner spring design, refined appearance, ideal for small-to-medium personal care packaging',
         toggle_expand: 'Expand Gallery',
         toggle_collapse: 'Collapse Gallery',
         view_larger: 'View Larger',
@@ -165,6 +172,7 @@ const I18N = {
         footer_product_series: 'Product Series',
         footer_401: '401 Inner Spring Pump',
         footer_405: '405 Outer Spring Pump',
+        footer_201: '201 Inner Spring Pump',
         footer_more: 'More series coming soon',
         footer_contact_info: 'Contact Info',
         footer_address1: 'Heshan, Jiangmen, Guangdong',
@@ -226,90 +234,108 @@ document.getElementById('langToggle').addEventListener('click', () => {
 // ========== PRODUCTS ==========
 const imageBase401 = 'assets/images/products/401/';
 const imageBase405 = 'assets/images/products/405/';
+const imageBase201 = 'assets/images/products/201/';
 
 const supportsWebP = document.createElement('canvas').toDataURL('image/webp').startsWith('data:image/webp');
 
 function getExt() {
-    return supportsWebP ? '副本.webp' : '副本.jpg';
+    return supportsWebP ? '.webp' : '.jpg';
 }
 
-const files401 = [];
-const files405 = [];
+const files401 = [
+    'R401-28,410A-A-AB','R401-28,410A-A-AC','R401-28,410A-A-AD','R401-28,410A-A-AE',
+    'R401-28,410A-A-DQ','R401-28,410A-A-PA','R401-28,410A-A-QI','R401-28,410A-A-QJ',
+    'R401-28,410A-A-QV','R401-33-410A-A-QY','R401-33-410A-C-QX','R401-33-410C-A-LR',
+    'R401-33-410C-A-LS','R401-33-410C-A-LT','R401-33-410C-A-LU','R401-33-410C-A-LV',
+    'R401-33-410C-A-PC','R401-33-410C-A-PJ','R401-33-410C-A-PK','R401-33-410C-A-PL',
+    'R401-33-410C-A-PT','R401-33-410C-A-PU','R401-33-410C-A-QE','R401-33-410C-A-QK',
+    'R401-33-410C-A-QL','R401-33-410C-A-QM','R401-33-410C-A-QN','R401-33-410C-A-QO',
+    'R401-33-410C-A-QP','R401-33-410C-A-QQ','R401-33-410C-A-QR','R401-33-410C-A-QS',
+    'R401-33-410C-A-QT','R401-33-410C-A-QU','R401-33-410C-A-QV','R401-33-410C-A-QW',
+    'R401-33-410C-A-RT','R401-33-410C-A-RY','R401-33,410A-A-BD','R401-33,410A-A-BE',
+    'R401-33,410A-A-BI','R401-33,410A-A-BJ','R401-33,410A-A-BK','R401-33,410A-A-BO',
+    'R401-33,410A-A-BQ','R401-33,410A-A-BR','R401-33,410A-A-BS','R401-33,410A-A-DR',
+    'R401-33,410A-A-PD','R401-33,410A-A-QF','R401-33,410A-A-QG','R401-33,410A-A-QP',
+    'R401-33,410A-A-QT','R401-33,410A-A-QU','R401-33,410A-A-RG','R401-33,410A-A-RH',
+    'R401-33,410A-A-RS','R401-33,410A-C-BL','R401-33,410A-C-BM','R401-33,410A-C-PH',
+    'R401-33,410A-C-PO','R401-33,410A-D-BA','R401-33,410A-D-BC','R401-33,410A-D-BF',
+    'R401-33,410A-D-BG','R401-33,410A-D-BN','R401-33,410A-D-BP','R401-33,410A-D-BT',
+    'R401-33,410A-D-DS','R401-33,410A-D-PG','R401-33,410A-D-PV','R401-33,410A-D-QS',
+    'R401-33,410A-D-RP','R401-33,410C-A-BH','R401-33,410C-A-QB','R401-33,410C-A-RF',
+    'R401-33,410C-A-RQ','R401-33,410C-A-RZ',
+];
+
+const files405 = [
+    'R405-33-410C-A-AC','R405-33-410C-A-AV','R405-33-410C-A-BW','R405-33-410C-A-LA',
+    'R405-33-410C-A-LB','R405-33-410C-A-LC','R405-33-410C-A-LD','R405-33-410C-A-LE',
+    'R405-33-410C-A-LF','R405-33-410C-A-LG','R405-33-410C-A-LH','R405-33-410C-A-LI',
+    'R405-33-410C-A-LJ','R405-33-410C-A-LK','R405-33-410C-A-QE','R405-33-410C-A-QF',
+    'R405-33-410C-A-RA','R405-33,410C-A-AA','R405-33,410C-A-AD','R405-33,410C-A-AG',
+    'R405-33,410C-A-AH','R405-33,410C-A-AJ','R405-33,410C-A-AO','R405-33,410C-A-AT',
+    'R405-33,410C-A-AU','R405-33,410C-A-BE','R405-33,410C-A-BF','R405-33,410C-A-BI',
+    'R405-33,410C-A-BK','R405-33,410C-A-BL','R405-33,410C-A-BX','R405-33,410C-A-DB',
+    'R405-33,410C-A-QA','R405-33,410C-A-QB','R405-33,410C-A-QC','R405-33,410C-A-QD',
+];
+
+const files201 = [
+    'R201-24,410A-A-DW','R201-24,410A-A-MA','R201-24,410A-A-MB','R201-24,410A-A-MC',
+    'R201-24,410A-A-OE','R201-24,410A-A-OO','R201-24,410A-A-OQ','R201-24,410A-A-OR',
+    'R201-24,410A-A-OU','R201-24,410A-A-OW','R201-24,410A-A-OX','R201-24,410A-A-UL',
+    'R201-24,410A-A-UX','R201-24,410A-A-VB','R201-24,410A-A-VF','R201-24,410A-A-VI',
+    'R201-24,410A-A-VK','R201-24,410A-A-VO','R201-24,410A-A-VR','R201-24,410C-A-OF',
+    'R201-24,410C-A-OG','R201-24,410C-A-OI','R201-24,410C-A-OJ','R201-24,410C-A-OK',
+    'R201-24,410C-A-OL','R201-24,410C-A-OM','R201-24,410C-A-ON','R201-24,410C-A-OS',
+    'R201-24,410C-A-OV','R201-24,410C-A-UG','R201-24,410C-A-UH','R201-24,410C-A-UQ',
+    'R201-24,410C-A-UT','R201-24,410C-A-VG','R201-24,410C-A-VH','R201-24,410C-A-VL',
+    'R201-24,410C-A-VV','R201-24,410C-A-WV','R201-24,410C-A-WY','R201-24,410C-D-OH',
+    'R201-24,410C-D-OP','R201-24,410C-D-UJ','R201-24,410C-D-VS','R201-28,410C-A-DU',
+    'R201-28,410C-A-MD','R201-28,410C-A-ME','R201-28,410C-A-MF','R201-28,410C-A-MG',
+    'R201-28,410C-A-OA','R201-28,410C-A-OB','R201-28,410C-A-OC','R201-28,410C-A-OD',
+    'R201-28,410C-A-OT','R201-28,410C-A-OY','R201-28,410C-A-UA','R201-28,410C-A-UC',
+    'R201-28,410C-A-UK','R201-28,410C-A-UO','R201-28,410C-A-UV','R201-28,410C-A-VJ',
+    'R201-28,410C-A-VT','R201-28,410C-A-WU','R201-28,410C-A-WX','R201-28,410C-A-WZ',
+];
 
 function getImageName(filename) {
-    return filename.replace(/副本\.(webp|jpg)/g, '').replace(/\.(webp|jpg)/g, '').replace(/,/g, '/');
+    return filename.replace(/,/g, '/');
+}
+
+function renderSeries(grid, files, imageBase, btnTarget, t) {
+    if (!grid) return;
+    const ext = getExt();
+    grid.innerHTML = files.map(f => {
+        const name = getImageName(f);
+        const src = imageBase + f + ext;
+        return `
+            <div class="product-card" data-img="${src}" data-name="${name}">
+                <img class="product-card-img" data-src="${src}" alt="${name}" loading="lazy">
+                <div class="product-card-info">
+                    <div class="product-card-name">${name}</div>
+                </div>
+                <div class="product-card-overlay"><span>${t.view_larger}</span></div>
+            </div>
+        `;
+    }).join('');
+    const btn = document.querySelector(`[data-target="${btnTarget}"]`);
+    if (btn) btn.querySelector('.series-toggle-count').textContent = files.length + t.products_count;
 }
 
 function renderProducts() {
-    const series401Grid = document.querySelector('[data-grid="401"] .product-grid');
-    const series405Grid = document.querySelector('[data-grid="405"] .product-grid');
     const t = I18N[currentLang];
-
-    if (series401Grid) {
-        const images401 = files401.length > 0 ? files401 : generateFileList401();
-        series401Grid.innerHTML = images401.map(f => {
-            const name = getImageName(typeof f === 'string' ? f : f);
-            const src = imageBase401 + (typeof f === 'string' ? f : f);
-            return `
-                <div class="product-card" data-img="${src}" data-name="${name}">
-                    <img class="product-card-img" data-src="${src}" alt="${name}" loading="lazy">
-                    <div class="product-card-info">
-                        <div class="product-card-name">${name}</div>
-                    </div>
-                    <div class="product-card-overlay"><span>${t.view_larger}</span></div>
-                </div>
-            `;
-        }).join('');
-        const btn401 = document.querySelector('[data-target="401"]');
-        if (btn401) btn401.querySelector('.series-toggle-count').textContent = images401.length + t.products_count;
-    }
-
-    if (series405Grid) {
-        const images405 = files405.length > 0 ? files405 : generateFileList405();
-        series405Grid.innerHTML = images405.map(f => {
-            const name = getImageName(typeof f === 'string' ? f : f);
-            const src = imageBase405 + (typeof f === 'string' ? f : f);
-            return `
-                <div class="product-card" data-img="${src}" data-name="${name}">
-                    <img class="product-card-img" data-src="${src}" alt="${name}" loading="lazy">
-                    <div class="product-card-info">
-                        <div class="product-card-name">${name}</div>
-                    </div>
-                    <div class="product-card-overlay"><span>${t.view_larger}</span></div>
-                </div>
-            `;
-        }).join('');
-        const btn405 = document.querySelector('[data-target="405"]');
-        if (btn405) btn405.querySelector('.series-toggle-count').textContent = images405.length + t.products_count;
-    }
-
+    renderSeries(
+        document.querySelector('[data-grid="401"] .product-grid'),
+        files401, imageBase401, '401', t
+    );
+    renderSeries(
+        document.querySelector('[data-grid="405"] .product-grid'),
+        files405, imageBase405, '405', t
+    );
+    renderSeries(
+        document.querySelector('[data-grid="201"] .product-grid'),
+        files201, imageBase201, '201', t
+    );
     initToggles();
     initLightbox();
-}
-
-function generateFileList401() {
-    const ext = getExt();
-    const prefixes28 = ['AF','AG','AZ','OD','OJ','OK','OO','OX','OY'];
-    const prefixes33a = ['AL','AU','BB','BE','BP','BQ','BY','CB','CE','OI','OL','OM','ON','OR','OS','OW','OZ'];
-    const prefixes33b = ['AB','AC','BM'];
-    const prefixes33c = ['AN','OU'];
-    const prefixes33d = ['AE','AI','AQ','AR','AS','BG','BU','BX','CF','OQ','OT'];
-    const prefixes33c2 = ['BC','EK'];
-    
-    const files = [];
-    prefixes28.forEach(s => files.push(`R401-28,410A-A-${s}${ext}`));
-    prefixes33a.forEach(s => files.push(`R401-33,410A-A-${s}${ext}`));
-    prefixes33b.forEach(s => files.push(`R401-33,410A-B-${s}${ext}`));
-    prefixes33c.forEach(s => files.push(`R401-33,410A-C-${s}${ext}`));
-    prefixes33d.forEach(s => files.push(`R401-33,410A-D-${s}${ext}`));
-    prefixes33c2.forEach(s => files.push(`R401-33,410C-A-${s}${ext}`));
-    return files;
-}
-
-function generateFileList405() {
-    const ext = getExt();
-    const suffixes = ['OA','OB','OC','OE','OG','OI','OJ','OK','OP','WF'];
-    return suffixes.map(s => `R405-33,410C-A-${s}${ext}`);
 }
 
 // ========== SERIES TOGGLES ==========
