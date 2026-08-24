@@ -1340,6 +1340,16 @@ html[lang="en"] .hero-title {
     font-weight: 500;
 }
 
+.contact-card a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-card a:hover {
+    color: var(--gold-bright);
+}
+
 .contact-form-wrapper {
     background: var(--bg-glass);
     backdrop-filter: blur(15px);
