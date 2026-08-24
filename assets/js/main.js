@@ -29,13 +29,10 @@ const I18N = {
         filter_all: '全部系列',
         filter_401: '401 内置弹簧乳液泵系列',
         filter_405: '405 外置弹簧乳液泵系列',
-        filter_201: '201 内置弹簧乳液泵系列',
         series_401_title: '内置弹簧乳液泵系列',
         series_401_desc: '内置弹簧设计，外观简洁优雅，适合各类个人护理产品包装',
         series_405_title: '外置弹簧乳液泵系列',
         series_405_desc: '外置弹簧结构，出液稳定流畅，多种规格可选',
-        series_201_title: '内置弹簧乳液泵系列',
-        series_201_desc: '紧凑型内置弹簧设计，精巧外观，适用于各类中小型个人护理包装',
         toggle_expand: '展开产品图库',
         toggle_collapse: '收起产品图库',
         view_larger: '查看大图',
@@ -97,7 +94,6 @@ const I18N = {
         footer_product_series: '产品系列',
         footer_401: '401 内置弹簧乳液泵',
         footer_405: '405 外置弹簧乳液泵',
-        footer_201: '201 内置弹簧乳液泵',
         footer_more: '更多系列即将推出',
         footer_contact_info: '联系方式',
         footer_address1: '广东省江门市鹤山市',
@@ -136,13 +132,10 @@ const I18N = {
         filter_all: 'All Series',
         filter_401: '401 Inner Spring Pump Series',
         filter_405: '405 Outer Spring Pump Series',
-        filter_201: '201 Inner Spring Pump Series',
         series_401_title: 'Inner Spring Pump Series',
         series_401_desc: 'Inner spring design, clean and elegant appearance, ideal for personal care packaging',
         series_405_title: 'Outer Spring Pump Series',
         series_405_desc: 'Outer spring structure, stable and smooth dispensing, multiple specifications available',
-        series_201_title: 'Inner Spring Pump Series',
-        series_201_desc: 'Compact inner spring design, refined appearance, ideal for small-to-medium personal care packaging',
         toggle_expand: 'Expand Gallery',
         toggle_collapse: 'Collapse Gallery',
         view_larger: 'View Larger',
@@ -204,7 +197,6 @@ const I18N = {
         footer_product_series: 'Product Series',
         footer_401: '401 Inner Spring Pump',
         footer_405: '405 Outer Spring Pump',
-        footer_201: '201 Inner Spring Pump',
         footer_more: 'More series coming soon',
         footer_contact_info: 'Contact Info',
         footer_address1: 'Heshan, Jiangmen, Guangdong',
@@ -216,7 +208,7 @@ const I18N = {
     }
 };
 
-let currentLang = localStorage.getItem('lang') || 'en';
+let currentLang = 'en';
 
 function updateValidationMessages(lang) {
     const t = I18N[lang];
@@ -229,9 +221,12 @@ function updateValidationMessages(lang) {
     });
 }
 
-function applyLang(lang) {
+function applyLang(lang, rememberChoice = false) {
     currentLang = lang;
-    localStorage.setItem('lang', lang);
+    if (rememberChoice) {
+        localStorage.setItem('lang', lang);
+        localStorage.setItem('langMode', 'manual');
+    }
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
     document.title = lang === 'zh' ? '瑞柏晟科技 | 专业乳液泵头制造商' : 'Raybosun Technology | Professional Lotion Pump Manufacturer';
 
@@ -260,13 +255,24 @@ function applyLang(lang) {
 }
 
 document.getElementById('langToggle').addEventListener('click', () => {
-    applyLang(currentLang === 'zh' ? 'en' : 'zh');
+    applyLang(currentLang === 'zh' ? 'en' : 'zh', true);
 });
+
+function getInitialLanguage() {
+    const savedLang = localStorage.getItem('lang');
+    const isManualChoice = localStorage.getItem('langMode') === 'manual';
+
+    if (isManualChoice && (savedLang === 'zh' || savedLang === 'en')) {
+        return savedLang;
+    }
+
+    const browserLang = (navigator.language || 'en').toLowerCase();
+    return browserLang.startsWith('zh') ? 'zh' : 'en';
+}
 
 // ========== PRODUCTS ==========
 const imageBase401 = 'assets/images/products/401/';
 const imageBase405 = 'assets/images/products/405/';
-const imageBase201 = 'assets/images/products/201/';
 
 const supportsWebP = document.createElement('canvas').toDataURL('image/webp').startsWith('data:image/webp');
 
@@ -275,15 +281,15 @@ function getExt() {
 }
 
 const files401 = [
-    'R401-28,410A-A-DQ','R401-28,410A-A-PA','R401-28,410A-A-QI','R401-28,410A-A-QJ',
-    'R401-28,410A-A-QV','R401-33-410A-A-QY','R401-33-410C-A-PC','R401-33-410C-A-PJ',
+    'R401-28,410A-A-DQ','R401-28,410A-A-QI','R401-28,410A-A-QJ','R401-28,410A-A-QV',
+    'R401-33-410A-A-QY','R401-33-410C-A-PC','R401-33-410C-A-PJ',
     'R401-33-410C-A-PK','R401-33-410C-A-PL','R401-33-410C-A-PT','R401-33-410C-A-PU',
     'R401-33-410C-A-QE','R401-33-410C-A-QK','R401-33-410C-A-QL','R401-33-410C-A-QO',
     'R401-33-410C-A-QQ','R401-33-410C-A-QR','R401-33-410C-A-RT','R401-33-410C-A-RY',
-    'R401-33,410A-A-DR','R401-33,410A-A-PD','R401-33,410A-A-QF','R401-33,410A-A-QG',
+    'R401-33,410A-A-DR','R401-33,410A-A-PD','R401-33,410A-A-QB','R401-33,410A-A-QF','R401-33,410A-A-QG',
     'R401-33,410A-A-QP','R401-33,410A-A-QT','R401-33,410A-A-QU','R401-33,410A-A-RS',
     'R401-33,410A-C-PH','R401-33,410A-C-PO','R401-33,410A-D-DS','R401-33,410A-D-PG',
-    'R401-33,410A-D-PV','R401-33,410A-D-QS','R401-33,410A-D-RP','R401-33,410C-A-QB',
+    'R401-33,410A-D-PV','R401-33,410A-D-QS','R401-33,410A-D-RP','R401-33,410C-A-PA',
     'R401-33,410C-A-RQ','R401-33,410C-A-RZ',
 ];
 
@@ -295,19 +301,8 @@ const files405 = [
     'R405-33,410C-A-BL','R405-33,410C-A-BX','R405-33,410C-A-DB',
 ];
 
-const files201 = [
-    'R201-24,410A-A-DW','R201-24,410A-A-UL','R201-24,410A-A-UX','R201-24,410A-A-VB',
-    'R201-24,410A-A-VF','R201-24,410A-A-VI','R201-24,410A-A-VK','R201-24,410A-A-VO',
-    'R201-24,410A-A-VR','R201-24,410C-A-UG','R201-24,410C-A-UH','R201-24,410C-A-UQ',
-    'R201-24,410C-A-UT','R201-24,410C-A-VG','R201-24,410C-A-VH','R201-24,410C-A-VL',
-    'R201-24,410C-A-VV','R201-24,410C-A-WV','R201-24,410C-A-WY','R201-24,410C-D-UJ',
-    'R201-24,410C-D-VS','R201-28,410C-A-DU','R201-28,410C-A-UA','R201-28,410C-A-UC',
-    'R201-28,410C-A-UK','R201-28,410C-A-UO','R201-28,410C-A-UV','R201-28,410C-A-VJ',
-    'R201-28,410C-A-VT','R201-28,410C-A-WU','R201-28,410C-A-WX','R201-28,410C-A-WZ',
-];
-
 function getImageName(filename) {
-    return filename.replace(/,/g, '/');
+    return filename.replace(/^(R\d+-\d+)[,-](\d{3}[A-Z]-)/, '$1/$2');
 }
 
 function renderSeries(grid, files, imageBase, btnTarget, t) {
@@ -339,10 +334,6 @@ function renderProducts() {
     renderSeries(
         document.querySelector('[data-grid="405"] .product-grid'),
         files405, imageBase405, '405', t
-    );
-    renderSeries(
-        document.querySelector('[data-grid="201"] .product-grid'),
-        files201, imageBase201, '201', t
     );
     initToggles();
     initLightbox();
@@ -641,5 +632,5 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 
 // ========== INIT ==========
 document.addEventListener('DOMContentLoaded', () => {
-    applyLang(currentLang);
+    applyLang(getInitialLanguage());
 });

@@ -1,33 +1,33 @@
 :root {
-    --bg: #0A0E1A;
-    --bg-soft: #0D1220;
-    --bg-darker: #060912;
-    --bg-card: #111829;
-    --bg-glass: rgba(17, 24, 41, 0.6);
-    --bg-glass-hover: rgba(22, 30, 50, 0.75);
+    --bg: #141C2E;
+    --bg-soft: #19243A;
+    --bg-darker: #0D1424;
+    --bg-card: #1D2940;
+    --bg-glass: rgba(29, 41, 64, 0.72);
+    --bg-glass-hover: rgba(37, 52, 79, 0.82);
 
-    --gold: #C69749;
-    --gold-light: #D4A95A;
-    --gold-bright: #F0C97A;
-    --gold-pale: rgba(198, 151, 73, 0.1);
-    --gold-glow: rgba(198, 151, 73, 0.15);
-    --gold-glow-strong: rgba(198, 151, 73, 0.4);
+    --gold: #D0A252;
+    --gold-light: #E0B765;
+    --gold-bright: #F6D58C;
+    --gold-pale: rgba(208, 162, 82, 0.13);
+    --gold-glow: rgba(208, 162, 82, 0.2);
+    --gold-glow-strong: rgba(208, 162, 82, 0.46);
 
-    --gradient-gold: linear-gradient(135deg, #C69749, #E0B66A, #F0C97A);
+    --gradient-gold: linear-gradient(135deg, #D0A252, #E7BD6B, #F6D58C);
 
-    --text: #E8EDF5;
-    --text-light: #8B95A8;
-    --text-dim: #5A6478;
-    --text-white: #F8FAFC;
+    --text: #EDF2F8;
+    --text-light: #B4BFCE;
+    --text-dim: #8794A8;
+    --text-white: #FFFFFF;
 
-    --line: rgba(255, 255, 255, 0.06);
-    --line-gold: rgba(198, 151, 73, 0.15);
-    --line-gold-hover: rgba(198, 151, 73, 0.4);
+    --line: rgba(255, 255, 255, 0.1);
+    --line-gold: rgba(208, 162, 82, 0.24);
+    --line-gold-hover: rgba(208, 162, 82, 0.52);
 
-    --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
-    --shadow-gold: 0 4px 20px rgba(198, 151, 73, 0.15);
-    --shadow-gold-lg: 0 8px 40px rgba(198, 151, 73, 0.25);
+    --shadow: 0 4px 20px rgba(4, 8, 18, 0.28);
+    --shadow-lg: 0 8px 30px rgba(4, 8, 18, 0.36);
+    --shadow-gold: 0 4px 20px rgba(208, 162, 82, 0.2);
+    --shadow-gold-lg: 0 8px 40px rgba(208, 162, 82, 0.3);
 
     --radius: 4px;
     --radius-lg: 8px;
@@ -87,12 +87,12 @@ body {
 }
 
 .navbar.scrolled {
-    background: rgba(6, 9, 18, 0.85);
+    background: rgba(13, 20, 36, 0.86);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     padding: 14px 0;
     border-bottom: 1px solid var(--line-gold);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 20px rgba(4, 8, 18, 0.22);
 }
 
 .nav-container {
@@ -261,7 +261,7 @@ body {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(105deg, rgba(6, 9, 18, 0.88) 0%, rgba(10, 14, 26, 0.65) 50%, rgba(17, 24, 41, 0.45) 100%);
+    background: linear-gradient(105deg, rgba(9, 15, 28, 0.72) 0%, rgba(14, 23, 40, 0.5) 50%, rgba(22, 34, 55, 0.28) 100%);
 }
 
 .hero-grid-lines {
@@ -481,7 +481,7 @@ html[lang="en"] .hero-title {
 .marquee {
     background: var(--bg-darker);
     color: white;
-    padding: 16px 0;
+    padding: 12px 0;
     overflow: hidden;
     border-bottom: 1px solid var(--line);
 }
@@ -520,7 +520,7 @@ html[lang="en"] .hero-title {
 
 /* ========== SECTION HEADER ========== */
 .section-header {
-    margin-bottom: 64px;
+    margin-bottom: 48px;
 }
 
 .section-header.centered {
@@ -536,7 +536,7 @@ html[lang="en"] .hero-title {
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 20px;
+    margin-bottom: 14px;
 }
 
 .section-tag::before {
@@ -572,14 +572,14 @@ html[lang="en"] .hero-title {
 
 /* ========== PRODUCTS ========== */
 .products {
-    padding: 120px 0;
+    padding: 88px 0;
     background: var(--bg);
 }
 
 .series-filter {
     display: flex;
     gap: 0;
-    margin-bottom: 64px;
+    margin-bottom: 48px;
     border-bottom: 1px solid var(--line);
     flex-wrap: wrap;
 }
@@ -623,7 +623,7 @@ html[lang="en"] .hero-title {
 }
 
 .product-series {
-    margin-bottom: 96px;
+    margin-bottom: 68px;
 }
 
 .product-series:last-child {
@@ -642,7 +642,7 @@ html[lang="en"] .hero-title {
     margin-bottom: 0;
     display: flex;
     align-items: flex-end;
-    padding: 32px 40px;
+    padding: 28px 36px;
     background-size: cover;
     background-position: center;
     border: 1px solid var(--line-gold);
@@ -651,7 +651,7 @@ html[lang="en"] .hero-title {
 .series-header-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(0deg, rgba(6, 9, 18, 0.8) 0%, rgba(6, 9, 18, 0.2) 100%);
+    background: linear-gradient(0deg, rgba(9, 15, 28, 0.68) 0%, rgba(13, 21, 37, 0.12) 100%);
 }
 
 .series-header-content {
@@ -689,7 +689,7 @@ html[lang="en"] .hero-title {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 20px 0;
+    padding: 16px 0;
     background: transparent;
     border: none;
     border-bottom: 1px solid var(--line);
@@ -756,7 +756,7 @@ html[lang="en"] .hero-title {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1px;
-    margin-top: 32px;
+    margin-top: 24px;
     background: var(--line);
     border: 1px solid var(--line);
 }
@@ -839,7 +839,7 @@ html[lang="en"] .hero-title {
 /* ========== STATS ========== */
 .stats {
     background: var(--bg-darker);
-    padding: 100px 0;
+    padding: 72px 0;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
 }
@@ -847,7 +847,7 @@ html[lang="en"] .hero-title {
 .stats-inner {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 80px;
+    gap: 56px;
     align-items: center;
 }
 
@@ -870,7 +870,7 @@ html[lang="en"] .hero-title {
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 48px 32px;
+    gap: 36px 28px;
 }
 
 .stat-item {
@@ -912,7 +912,7 @@ html[lang="en"] .hero-title {
 
 /* ========== ADVANTAGES ========== */
 .advantages {
-    padding: 120px 0;
+    padding: 88px 0;
     background: var(--bg);
 }
 
@@ -926,7 +926,7 @@ html[lang="en"] .hero-title {
 
 .advantage-card {
     background: var(--bg);
-    padding: 56px 48px;
+    padding: 44px 40px;
     border-right: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
     transition: var(--transition);
@@ -979,14 +979,14 @@ html[lang="en"] .hero-title {
     font-weight: 700;
     color: var(--gold);
     font-family: 'SF Mono', monospace;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     letter-spacing: 1px;
 }
 
 .advantage-icon {
     width: 48px;
     height: 48px;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
     transition: var(--transition);
 }
 
@@ -1028,16 +1028,16 @@ html[lang="en"] .hero-title {
 
 /* ========== FACTORY ========== */
 .factory {
-    padding: 120px 0;
+    padding: 88px 0;
     background: var(--bg-soft);
 }
 
 .factory-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 64px;
+    gap: 48px;
     align-items: center;
-    margin-bottom: 48px;
+    margin-bottom: 36px;
 }
 
 .factory-text h2 {
@@ -1045,7 +1045,7 @@ html[lang="en"] .hero-title {
     font-weight: 900;
     line-height: 1.1;
     letter-spacing: -0.02em;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
     color: var(--text-white);
 }
 
@@ -1138,7 +1138,7 @@ html[lang="en"] .hero-title {
     left: 0;
     right: 0;
     padding: 10px 14px;
-    background: linear-gradient(transparent, rgba(6, 9, 18, 0.9));
+    background: linear-gradient(transparent, rgba(9, 15, 28, 0.82));
     color: var(--gold-light);
     font-size: 12px;
     font-weight: 600;
@@ -1147,14 +1147,14 @@ html[lang="en"] .hero-title {
 
 /* ========== ABOUT ========== */
 .about {
-    padding: 120px 0;
+    padding: 88px 0;
     background: var(--bg);
 }
 
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    gap: 56px;
     align-items: start;
 }
 
@@ -1179,21 +1179,21 @@ html[lang="en"] .hero-title {
 
 .about-content .section-title {
     text-align: left;
-    margin-bottom: 28px;
+    margin-bottom: 20px;
 }
 
 .about-text {
     color: var(--text-light);
     font-size: 16px;
     line-height: 1.8;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
 }
 
 .about-features {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
-    margin-top: 40px;
+    margin-top: 28px;
     border-top: 1px solid var(--line);
 }
 
@@ -1201,12 +1201,12 @@ html[lang="en"] .hero-title {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 20px 24px 20px 0;
+    padding: 16px 20px 16px 0;
     border-bottom: 1px solid var(--line);
 }
 
 .about-feature:nth-child(even) {
-    padding-left: 24px;
+    padding-left: 20px;
     border-left: 1px solid var(--line);
 }
 
@@ -1227,7 +1227,7 @@ html[lang="en"] .hero-title {
 
 /* ========== CERT ========== */
 .cert {
-    padding: 120px 0;
+    padding: 88px 0;
     background: var(--bg-soft);
 }
 
@@ -1272,28 +1272,28 @@ html[lang="en"] .hero-title {
 
 /* ========== CONTACT ========== */
 .contact {
-    padding: 120px 0;
+    padding: 88px 0;
     background: var(--bg);
 }
 
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1.3fr;
-    gap: 64px;
+    gap: 48px;
     align-items: start;
 }
 
 .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 24px;
 }
 
 .contact-card {
     display: flex;
     gap: 20px;
     align-items: flex-start;
-    padding-bottom: 32px;
+    padding-bottom: 24px;
     border-bottom: 1px solid var(--line);
 }
 
@@ -1344,7 +1344,7 @@ html[lang="en"] .hero-title {
     background: var(--bg-glass);
     backdrop-filter: blur(15px);
     border: 1px solid var(--line-gold);
-    padding: 48px;
+    padding: 38px;
     box-shadow: var(--shadow-lg);
 }
 
@@ -1355,7 +1355,7 @@ html[lang="en"] .hero-title {
 }
 
 .form-group {
-    margin-bottom: 24px;
+    margin-bottom: 18px;
 }
 
 .form-group label {
@@ -1413,15 +1413,15 @@ html[lang="en"] .hero-title {
 .footer {
     background: var(--bg-darker);
     color: white;
-    padding: 80px 0 0;
+    padding: 56px 0 0;
     border-top: 1px solid var(--line-gold);
 }
 
 .footer-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 48px;
-    padding-bottom: 48px;
+    gap: 36px;
+    padding-bottom: 36px;
     border-bottom: 1px solid var(--line);
 }
 
@@ -1633,6 +1633,18 @@ html[lang="en"] .hero-title {
 @media (max-width: 768px) {
     .container { padding: 0 24px; }
 
+    .products,
+    .advantages,
+    .factory,
+    .about,
+    .cert,
+    .contact { padding: 64px 0; }
+
+    .stats { padding: 56px 0; }
+    .section-header { margin-bottom: 36px; }
+    .series-filter { margin-bottom: 36px; }
+    .product-series { margin-bottom: 48px; }
+
     .nav-menu {
         position: fixed;
         top: 0;
@@ -1666,10 +1678,10 @@ html[lang="en"] .hero-title {
     .hero-content { padding: 0 24px; }
     .hero-scroll { left: 24px; }
 
-    .stats-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .stats-grid { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
     .advantages-grid { grid-template-columns: 1fr; }
-    .about-grid { grid-template-columns: 1fr; gap: 48px; }
-    .contact-form-wrapper { padding: 32px 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 36px; }
+    .contact-form-wrapper { padding: 28px 24px; }
     .form-row { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; }
 
@@ -1686,5 +1698,5 @@ html[lang="en"] .hero-title {
     .stat-number { font-size: 44px; }
     .hero-buttons { flex-direction: column; align-items: stretch; }
     .product-grid { grid-template-columns: repeat(2, 1fr); }
-    .advantage-card { padding: 40px 32px; }
+    .advantage-card { padding: 34px 28px; }
 }
