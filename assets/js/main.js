@@ -10,7 +10,6 @@ const I18N = {
         hero_title: '品质塑造品牌<br>体验融入生活',
         hero_subtitle: '专注个人护理领域高端乳液泵头的研发制造',
         hero_btn_products: '浏览产品目录',
-        hero_btn_contact: '联系我们',
         scroll_down: '向下滚动',
         marquee_1: '乳液泵头',
         marquee_2: '个人护理',
@@ -114,7 +113,6 @@ const I18N = {
         hero_title: 'Quality Shapes Brands<br>Experience Enriches Life',
         hero_subtitle: 'Specialized in R&D and manufacturing of premium lotion pumps for personal care',
         hero_btn_products: 'Browse Products',
-        hero_btn_contact: 'Contact Us',
         scroll_down: 'Scroll Down',
         marquee_1: 'Lotion Pumps',
         marquee_2: 'Personal Care',
@@ -214,7 +212,7 @@ let currentLang = 'en';
 
 function updateValidationMessages(lang) {
     const t = I18N[lang];
-    document.querySelectorAll('#contactForm [required]').forEach(el => {
+    document.querySelectorAll('.contact-form [required]').forEach(el => {
         el.setAttribute('oninvalid', `this.setCustomValidity('${t.validation_required}')`);
         el.setAttribute('oninput', "this.setCustomValidity('')");
         if (el.type === 'email') {
@@ -611,25 +609,27 @@ lazyBgs.forEach(el => bgObserver.observe(el));
     emailjs.init('kuXqmxhz-5mVDVNbi');
 })();
 
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = this.querySelector('button[type="submit"]');
-    const origText = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = '...';
+document.querySelectorAll('.contact-form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('button[type="submit"]');
+        const origText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = '...';
 
-    emailjs.sendForm('service_raybosun', 'template_mrb700r', this)
-        .then(() => {
-            alert(I18N[currentLang].form_success);
-            this.reset();
-        })
-        .catch((err) => {
-            alert('Send failed: ' + err.text);
-        })
-        .finally(() => {
-            btn.disabled = false;
-            btn.textContent = origText;
-        });
+        emailjs.sendForm('service_raybosun', 'template_mrb700r', this)
+            .then(() => {
+                alert(I18N[currentLang].form_success);
+                this.reset();
+            })
+            .catch((err) => {
+                alert('Send failed: ' + err.text);
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.textContent = origText;
+            });
+    });
 });
 
 // ========== INIT ==========
