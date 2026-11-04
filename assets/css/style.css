@@ -1302,6 +1302,23 @@ html[lang="en"] .hero-title {
     letter-spacing: 0.5px;
 }
 
+/* ========== INTEGRATED SOLUTIONS ========== */
+.solutions { padding: 84px 0; background: var(--bg); }
+.solutions-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: 56px; align-items: center; }
+.solutions-intro { max-width: 500px; }
+.solutions-kicker { color: var(--gold-light); font-size: 12px; letter-spacing: 2px; font-weight: 700; margin-bottom: 16px; }
+.solutions-intro h3 { color: var(--text-white); font-size: clamp(26px, 3vw, 38px); line-height: 1.2; margin: 0 0 18px; }
+.solutions-intro p { color: var(--text-light); font-size: 15px; line-height: 1.85; margin-bottom: 22px; }
+.solutions-points { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 28px; }
+.solutions-points span { padding: 8px 12px; color: var(--gold-light); border: 1px solid var(--line-gold); font-size: 12px; }
+.bottle-gallery { display: grid; grid-template-columns: 1.25fr .75fr; gap: 14px; min-height: 430px; }
+.bottle-gallery img { width: 100%; height: 100%; object-fit: cover; display: block; transition: var(--transition); }
+.bottle-gallery-main, .bottle-gallery-grid img { overflow: hidden; border: 1px solid var(--line-gold); }
+.bottle-gallery-main img { min-height: 430px; }
+.bottle-gallery-main:hover img, .bottle-gallery-grid img:hover { transform: scale(1.03); }
+.bottle-gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.bottle-gallery-grid img { min-height: 208px; }
+
 /* ========== ABOUT ========== */
 .about {
     padding: 72px 0;
@@ -1801,6 +1818,8 @@ html[lang="en"] .hero-title {
     .factory-main img { height: 360px; }
     .stats-inner { grid-template-columns: 1fr; gap: 36px; }
     .contact-grid { grid-template-columns: 1fr; }
+    .solutions-layout { grid-template-columns: 1fr; gap: 36px; }
+    .solutions-intro { max-width: none; }
 }
 
 @media (max-width: 768px) {
@@ -1809,6 +1828,7 @@ html[lang="en"] .hero-title {
     .products,
     .advantages,
     .factory,
+    .solutions,
     .about,
     .cert,
     .contact { padding: 52px 0; }
@@ -1867,6 +1887,9 @@ html[lang="en"] .hero-title {
 
     .factory-side { grid-template-columns: 1fr; }
     .factory-card img { height: 200px; }
+    .bottle-gallery { min-height: 340px; }
+    .bottle-gallery-main img { min-height: 340px; }
+    .bottle-gallery-grid img { min-height: 163px; }
 }
 
 @media (max-width: 480px) {
