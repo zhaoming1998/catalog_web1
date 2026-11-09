@@ -1593,6 +1593,10 @@ html[lang="en"] .hero-title {
     appearance: none;
 }
 
+.privacy-consent { display:flex; align-items:flex-start; gap:8px; color:var(--text-muted); font-size:12px; line-height:1.6; margin:12px 0 16px; }
+.privacy-consent input { margin-top:3px; accent-color:var(--gold); }
+.privacy-consent a { color:var(--gold-light); text-decoration:underline; }
+
 /* ========== FOOTER ========== */
 .footer {
     background: var(--bg-darker);

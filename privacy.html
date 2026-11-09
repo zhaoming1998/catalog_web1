@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#060912">
+    <title>隐私政策 | 瑞柏晟科技</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .privacy-page{min-height:100vh;padding:110px 0 72px;background:var(--bg);color:var(--text-light)}
+        .privacy-card{max-width:900px;margin:0 auto;padding:42px 48px;background:var(--bg-soft);border:1px solid var(--line-gold)}
+        .privacy-card h1{color:var(--text-white);font-size:clamp(30px,5vw,48px);margin:0 0 12px}
+        .privacy-card h2{color:var(--gold-light);font-size:20px;margin:32px 0 10px}
+        .privacy-card p,.privacy-card li{font-size:15px;line-height:1.9}
+        .privacy-card ul{padding-left:22px}.privacy-meta{color:var(--text-muted);font-size:13px}
+        .privacy-back{display:inline-block;margin-bottom:28px;color:var(--gold-light);text-decoration:none}
+        @media(max-width:600px){.privacy-card{padding:28px 22px}}
+    </style>
+</head>
+<body>
+<main class="privacy-page"><div class="container"><a class="privacy-back" href="index.html">← 返回网站</a><article class="privacy-card">
+    <div id="privacyZh">
+    <h1>隐私政策</h1><p class="privacy-meta">生效日期：2026年11月9日　最后更新：2026年11月9日</p>
+    <p>广东瑞柏晟科技有限公司（“我们”）重视您的隐私。本政策说明我们如何处理您通过本网站提交的信息。</p>
+    <h2>一、我们收集的信息</h2><p>当您提交询盘时，我们可能收集姓名、公司名称、电话、电子邮箱、感兴趣的产品系列及留言内容。网站仅使用浏览器本地存储记住语言偏好，不使用 Cookie 进行广告追踪。</p>
+    <h2>二、信息用途</h2><p>上述信息仅用于回复询盘、沟通报价与打样、提供乳液泵头及瓶器一体化包装方案，以及改进客户服务。</p>
+    <h2>三、第三方服务</h2><p>表单通过 EmailJS 传输。根据我们的业务设置，EmailJS 不保存您的客户提交数据；提交的信息由我们接收和管理。网站还使用 Google Fonts 加载字体、jsDelivr 加载 EmailJS 脚本；点击 WhatsApp 联系方式后，您将跳转至 WhatsApp，其数据处理受 WhatsApp 自身政策约束。</p>
+    <h2>四、保存期限</h2><p>我们保存询盘信息一年。保存期满后，我们会删除或匿名化处理相关信息，法律法规另有要求的除外。</p>
+    <h2>五、您的权利</h2><p>您可以联系我们查询、更正或删除您的信息，也可以撤回后续联系授权。请通过以下方式联系我们：</p><ul><li>邮箱：Gavin@raybosun.com</li><li>电话：+86-757-2878-8302</li><li>WhatsApp：+86 130 6867 8333</li><li>地址：广东省江门市鹤山市中欧企业合作区</li></ul>
+    <h2>六、政策更新</h2><p>如网站功能或数据处理方式发生变化，我们会更新本页面的日期和内容。</p>
+    </div>
+    <div id="privacyEn" hidden>
+    <h1>Privacy Policy</h1><p class="privacy-meta">Effective date: November 9, 2026 · Last updated: November 9, 2026</p>
+    <p lang="en">Guangdong Raybosun Technology Co., Ltd. respects your privacy. This policy explains how we handle information submitted through this website.</p>
+    <h2 lang="en">1. Information We Collect</h2><p lang="en">When you submit an inquiry, we may collect your name, company, phone number, email address, product interest and message. The site only uses browser local storage to remember language preference and does not use cookies for advertising tracking.</p>
+    <h2 lang="en">2. How We Use Information</h2><p lang="en">We use the information only to respond to inquiries, discuss quotations and samples, provide pump-and-bottle packaging solutions, and improve customer service.</p>
+    <h2 lang="en">3. Third-Party Services</h2><p lang="en">Forms are transmitted through EmailJS. Under our business configuration, EmailJS does not retain customer-submitted data; the information is received and managed by us. Google Fonts and jsDelivr are used for fonts and the EmailJS script. WhatsApp links take you to WhatsApp, whose own policy governs its data processing.</p>
+    <h2 lang="en">4. Retention</h2><p lang="en">We retain inquiry information for one year. After that period, we delete or anonymize it unless a longer period is required by law.</p>
+    <h2 lang="en">5. Your Rights</h2><p lang="en">You may contact us to request access, correction or deletion of your information, or withdraw permission for follow-up contact. Contact: Gavin@raybosun.com · +86-757-2878-8302 · WhatsApp +86 130 6867 8333.</p>
+    <h2>6. Updates</h2><p>We will update this page and its date if our website features or data practices change.</p>
+    </div>
+</article></div></main>
+<script>
+    const savedLang = localStorage.getItem('lang');
+    const browserLang = (navigator.language || 'en').toLowerCase();
+    const lang = savedLang || (browserLang.startsWith('zh') ? 'zh' : 'en');
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    document.getElementById('privacyZh').hidden = lang !== 'zh';
+    document.getElementById('privacyEn').hidden = lang === 'zh';
+</script>
+</body></html>
