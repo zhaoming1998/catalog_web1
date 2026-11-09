@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-<main class="privacy-page"><div class="container"><a class="privacy-back" href="index.html">← 返回网站</a><article class="privacy-card">
+<main class="privacy-page"><div class="container"><a class="privacy-back" id="privacyBack" href="index.html">← 返回网站</a><article class="privacy-card">
     <div id="privacyZh">
     <h1>隐私政策</h1><p class="privacy-meta">生效日期：2026年11月9日　最后更新：2026年11月9日</p>
     <p>广东瑞柏晟科技有限公司（“我们”）重视您的隐私。本政策说明我们如何处理您通过本网站提交的信息。</p>
@@ -47,5 +47,6 @@
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
     document.getElementById('privacyZh').hidden = lang !== 'zh';
     document.getElementById('privacyEn').hidden = lang === 'zh';
+    document.getElementById('privacyBack').textContent = lang === 'zh' ? '← 返回网站' : '← Back to Website';
 </script>
 </body></html>
